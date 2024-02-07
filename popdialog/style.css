@@ -1,0 +1,115 @@
+/* Style for the <h1> element */
+h1 {
+    font-size: 24px;
+    color: #333;
+    /* text-align: center; */
+}
+
+/* Style for the <p> element */
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    /* margin: 20px; */
+}
+
+/* Style for the <button> element */
+button {
+    padding: 10px 20px;
+    background-color: #0074D9;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 20px;
+}
+
+/* Hover effect for the button */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Center the button */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* .modal {
+     padding: 1rem;
+     max-width: 100ch;
+     border: 0;
+     border-radius: 0.25rem;
+     box-shadow: 0 0 1rem rgb(0 0 0 / .4);
+     padding: 0 ;
+} */
+
+.modal {
+    /* position: fixed; */
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0;
+}
+
+.close-button {
+    /* position: absolute; */
+    top: -10px; /* Ajustez ces valeurs selon la taille de votre bouton */
+    right: -10px;
+    z-index: 10;
+}
+.modal::backdrop {
+    /* background: purple; */
+    /* background: linear-gradient(45deg, red, blue);
+    opacity: .2; */
+    background:rgb(0 0 0 / .5);
+    /* opacity: 0; */
+}
+
+@keyframes fade-in {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes fade-out {
+
+    100% {
+        opacity: 0;
+    }
+
+    0% {
+        opacity: 1;
+    }
+}
+
+.modal[open] {
+
+animation: fade-in 500ms forwards;
+}
+
+.modal[open]::backdrop {
+    /* opacity: 1; */
+    animation: fade-in 500ms forwards;
+}
+.modal[closing]::backdrop {
+    /* opacity: 1; */
+    animation: fade-out 500ms forwards;
+}
+
+.modal[closing] {
+    display: block;
+    pointer-events: none;
+    inset:0;
+    animation: fade-out 500ms forwards;
+
+}
